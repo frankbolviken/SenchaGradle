@@ -2,6 +2,20 @@
 
 This is just a skeleton with the latest ExtJS version (ExtJS 4.2.1), and Gradle.
 
+# Prerequisites
+---
+  - [Sencha CMD](http://www.sencha.com/products/sencha-cmd/download)
+  - [Gradle](http://www.gradle.org)
+
+
+# Instructions
+
+To simply build the application
+
+	gradle war
+
+This will minify the app using sencha cmd, and generate a war with default settings (Version etc)
+
 # Coming up
 Jasmine support
 Deployment to servers (Test, Stage, Prod etc)
