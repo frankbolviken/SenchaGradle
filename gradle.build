@@ -2,7 +2,9 @@ apply plugin: 'war'
 
 name = "SenchaGradle" // Must match the name of the Sencha app name
 
-version = System.properties["version"] ? name + '-' + System.properties["version"] : name + '-0.1-SNAPSHOT'
+buildNumber = System.properties["buildNumber"] ? "-" + System.properties["buildNumber"] : ''
+
+version = System.properties["version"] ? System.properties["version"] + buildNumber : '0.1' + buildNumber
 
 environment = System.properties["env"] ? env : 'production'
 

@@ -1,6 +1,9 @@
 # Description
 
-This is just a skeleton with the latest ExtJS version (ExtJS 4.2.1), and Gradle.
+This is just a skeleton application, with ExtJS as frontend and using Gradle to create artifact for easy deployment and version controll.
+---
+  - ExtJS 4.2.1.833
+  - Gradle 1.6
 
 # Prerequisites
 ---
@@ -15,6 +18,12 @@ To simply build the application
 	gradle war
 
 This will minify the app using sencha cmd, and generate a war with default settings (Version etc)
+
+More advanced features
+
+	gradle war -Dversion=0.2 -DbuildNumber=0001
+
+This will build the application, and set the version according to input. Usefull for instance when doing continuous integration with a build tool like TeamCity, to automagically version your app. 
 
 # Coming up
 Jasmine support
