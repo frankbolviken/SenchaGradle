@@ -16,24 +16,16 @@ version = System.properties["version"] ? System.properties["version"] + "-" + bu
 
 senchaEnvironment = System.properties["senchaEnvironment"] ? System.properties["senchaEnvironment"] : 'production'
 
+serverPath = "" // Set this to where you want to deploy the application
 ext {
     isWindows = org.gradle.internal.os.OperatingSystem.current().windows
-
-    if (!project.hasProperty('serverPath')) {
-        if (isWindows) {
-            serverPath = ''
-        } else {
-            serverPath = ''
-        }
-    }
-    
-    sonar_jacoco_jar = "${projectDir}/lib/jacocoagent-0.6.0.jar"
 }
 
 
 war {
     manifest {
         attributes("Implementation-Version" : version)
+        attributes("Application-Name" : projectName)
     }
 
     classpath = fileTree(classpath).exclude('**')
@@ -45,6 +37,8 @@ war {
     webXml = file('WEB-INF/web.xml')
 }
 
+
+//Sencha must be available in Path
 task sencha(type: Exec) {
     if(isWindows) {
         commandLine 'cmd', '/c', 'sencha', 'app', 'build', senchaEnvironment
